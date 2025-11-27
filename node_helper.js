@@ -96,44 +96,54 @@ module.exports = NodeHelper.create({
 					
 					let output = await exifr.parse(`${this.path_images[curr.id]}/${curr.img}`);
 					
-					if (output.latitude == undefined){
-						exifLat = "";
-						if (this.config[id].debug) {
-							Log.info("No Latitude");
-						}
-						
-					}else{
-						exifLat = output.latitude ;
-						if (this.config[id].debug) {
-							Log.info(output.latitude);
-						}
-						
-					}
-					
-					if (output.longitude == undefined){
-						exifLon = "";
-						if (this.config[id].debug) {
-							Log.info("No Longitude");
-						}
-					}else{
-						exifLon = output.longitude ;
-						if (this.config[id].debug) {
-							Log.info(output.longitude);
-						}
-					}
-					
-					if (output.DateTimeOriginal == undefined){
-						exifDate= ""
-						if (this.config[id].debug) {
-							Log.info("No Exif Date");
-						}
-					}else{
-						
-						exifDate= output.DateTimeOriginal
-						if (this.config[id].debug) {
-							Log.info(output.DateTimeOriginal);
-						}
-					}
+                    if (output == undefined){
+                        exifLat = "";
+                        exifLon = "";
+                        exifDate= "";
+                        if (this.config[id].debug) {
+                            Log.info("No Exif Data Found");
+                        }
+                    }else{
+                        
+                        if (output.latitude == undefined){
+                            exifLat = "";
+                            if (this.config[id].debug) {
+                                Log.info("No Latitude");
+                            }
+                            
+                        }else{
+                            exifLat = output.latitude ;
+                            if (this.config[id].debug) {
+                                Log.info(output.latitude);
+                            }
+                            
+                        }
+                        
+                        if (output.longitude == undefined){
+                            exifLon = "";
+                            if (this.config[id].debug) {
+                                Log.info("No Longitude");
+                            }
+                        }else{
+                            exifLon = output.longitude ;
+                            if (this.config[id].debug) {
+                                Log.info(output.longitude);
+                            }
+                        }
+                        
+                        if (output.DateTimeOriginal == undefined){
+                            exifDate= "";
+                            if (this.config[id].debug) {
+                                Log.info("No Exif Date");
+                            }
+                        }else{
+                            
+                            exifDate= output.DateTimeOriginal
+                            if (this.config[id].debug) {
+                                Log.info(output.DateTimeOriginal);
+                            }
+                        }
+                    }
 					
 					
 					
